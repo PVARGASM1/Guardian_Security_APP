@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
   ArrowPathIcon,
@@ -10,14 +11,14 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Instalación', description: 'Instalación de firewalls', href: '#', icon: ChartPieIcon },
+  { name: 'Administración', description: 'Asesoria directa con nuestros clientes', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'Seguridad', description: 'Ciberseguridad para redes y aplicaciones', href: '#', icon: FingerPrintIcon },
+  { name: 'Consultoria', description: 'Consultoria y asesoría de servicios de ciberseguridad', href: '#', icon: SquaresPlusIcon },
+  { name: 'Asistencia', description: 'Migración de plataformas de seguridad', href: '#', icon: ArrowPathIcon },
 ]
 
 
@@ -34,12 +35,14 @@ const Header = () => {
       <div className="flex lg:flex-1">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Our Company</span>
-          <Image 
-            src={''}
-            alt='logoGS'
-            width={150}
-            height={150}
-          />
+          <Link href={'/home'}>
+            <Image 
+              src={'/LogoSinBack.png'}
+              alt='logoGS'
+              width={250}
+              height={250}
+            />
+          </Link>
         </a>
       </div>
       <div className="flex lg:hidden">
@@ -54,8 +57,8 @@ const Header = () => {
       </div>
       <Popover.Group className="hidden lg:flex lg:gap-x-12">
         <Popover className="relative">
-          <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-            Product
+          <Popover.Button className="flex items-center gap-x-1 text-xl font-semibold leading text-gray-900">
+            Servicios
             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
           </Popover.Button>
 
@@ -79,10 +82,10 @@ const Header = () => {
                       <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                     </div>
                     <div className="flex-auto">
-                      <a href={item.href} className="block font-semibold text-gray-900">
+                      <Link href={item.href} className="block font-semibold text-gray-900">
                         {item.name}
                         <span className="absolute inset-0" />
-                      </a>
+                      </Link>
                       <p className="mt-1 text-gray-600">{item.description}</p>
                     </div>
                   </div>
@@ -93,18 +96,16 @@ const Header = () => {
           </Transition>
         </Popover>
 
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Features
-        </a>
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Marketplace
-        </a>
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Company
-        </a>
+        <Link href={'/consultorias'} className="text-xl font-semibold leading text-gray-900">
+          Agendar consultoria
+        </Link>
+
+        <Link href={'/home'} className="text-xl font-semibold leading text-gray-900">
+          Nuestra compañia
+        </Link>
       </Popover.Group>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+        <a href={'/login'} className="text-xl font-semibold leading text-gray-900">
           Log in <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -115,10 +116,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
+            <Image 
+              src={'/LogoSinBack.png'}
+              alt='logoGS'
+              width={100}
+              height={100}
             />
           </a>
           <button
@@ -137,19 +139,19 @@ const Header = () => {
                 {({ open }) => (
                   <>
                     <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                      Product
+                      Servicios
                       <ChevronDownIcon
                         className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                         aria-hidden="true"
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-2 space-y-2">
-                      {[...products, ...callsToAction].map((item) => (
+                      {[...products].map((item) => (
                         <Disclosure.Button
                           key={item.name}
                           as="a"
                           href={item.href}
-                          className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                          className="block rounded-lg py-2 pl-6 pr-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                         >
                           {item.name}
                         </Disclosure.Button>
@@ -158,28 +160,23 @@ const Header = () => {
                   </>
                 )}
               </Disclosure>
-              <a
-                href="#"
+              <Link
+                href={'/consultorias'}
                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
-                Features
-              </a>
+                Agendar consultoria
+              </Link>
+
               <a
-                href="#"
+                href={'/home'}
                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
-                Marketplace
-              </a>
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >
-                Company
+                Nuestra Compañia
               </a>
             </div>
             <div className="py-6">
               <a
-                href="#"
+                href={'/login'}
                 className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Log in

@@ -1,25 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaUserCircle } from 'react-icons/fa6'
-import styles from'./Header.module.css';
+import { FaUser, FaHome, FaServer } from 'react-icons/fa'
+import styles from'@/components/Header/Header.module.css';
 
 
-export const Header = () => {
-
+const Header = () => {
 
   return (
     <header className={styles.header}>
       <div className={styles.menu__container}>
-        {/* <div className={styles.menu__image-container}> */}
+        <div className={styles.menu__image}>
           <Link href={'/home'}>
             <Image
              src={'/LogoSinBack.png'}
-             width={200}
-             height={200}
+             width={150}
+             height={150}
+
              alt="Logo page GS" 
              />
           </Link>
-        {/* </div> */}
+        </div>
 
         <nav className={styles.navbar}>
     
@@ -30,8 +30,10 @@ export const Header = () => {
             >
               <Link
                 href={'/home'}
-                className={({ isActive }) => (isActive ? 'active-link' : '')}
+                className={styles.navbar_link}
               >
+               <FaHome /> 
+               <br />
                 Home
               </Link>
             </li>
@@ -40,22 +42,32 @@ export const Header = () => {
               className={styles.navbar_link}
             >
               <Link
+                className={styles.navbar_link}
                 href={'/services'}
-                className={({ isActive }) => (isActive ? 'active-link' : '')}
               >
+               <FaServer /> 
+               <br />
                 Services
               </Link>
-            </li>
-
-            <li
-              className={styles.navbar_link}
-            >
-              <FaUserCircle />
             </li>
 
           </ul>
 
         </nav>
+
+        <nav>
+          <ul className={styles.navbar__user}>
+          <li
+              className={styles.navbar_link}
+            >
+             <Link 
+              href={'/login'}>
+              <FaUser />
+             </Link>
+            </li>
+          </ul>
+        </nav>
+
       </div>
     </header>
   );

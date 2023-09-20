@@ -1,0 +1,89 @@
+.banner_container {
+    height: 90vh;
+    min-height: 300px;
+    min-width: 420px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: url(../../../public/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+  
+    .banner_content {
+      width: 100%;
+      max-width: 1400px;
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-bottom: 80px;
+      color: white;
+    }
+  
+    .title {
+        color: white;
+       font-size: 2rem;
+    }
+  
+    .slogan  {
+      color: white;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+
+    @media screen and (min-width: 768px) {
+
+        .banner-content {
+          margin-left: 24px;
+          margin-right: 24px;
+        }
+    
+        .title {
+            font-size: 3rem;
+        }
+        .slogan {
+            font-size: 1.5rem;
+        }
+    }
+      
+      @media screen and (min-width: 1000px) {
+      
+        .banner_container {
+          height: 90vh;
+        }
+          .banner_content {
+            max-width: 1400px;
+          }
+      }
+      
+      @media screen and (min-width: 1200px) {
+        .banner-container {
+          height: 100vh;
+        }  
+            .title {
+              font-size: 4.75rem;
+            }
+      
+            .slogan {
+              font-size: 2rem;
+            }  
+      }
+      
+    @media screen and (min-width: 1600px) {
+       
+        .banner_content {
+          margin: 0;
+          padding: 0;
+        }
+
+        .title {
+          font-size: 7.6rem;
+        }
+        
+        .slogan {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+    }

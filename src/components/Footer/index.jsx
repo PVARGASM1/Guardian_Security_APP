@@ -1,58 +1,58 @@
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebookF, FaGoogle } from 'react-icons/fa';
+import { AiFillLinkedin } from 'react-icons/ai'
 import styles from './Footer.module.css'
 
 
 const Footer = () => {
   return (
-    <footer class="aiz" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" class="t">Footer</h2>
-      <div class="gx ua ark aru cfk ddh ddo">
-        <div class="diy dkj dkv">
-
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto flex flex-col items-center">
+        <div class="mb-4">
         <Image
-             src={'/LogoSinBack.png'}
-             width={150}
-             height={150}
-             alt="Logo page GS" 
-             />
-             
-            <div class="la mb yi zt dhj diq">
-              <div class="clk cms cni">
-                <div>
-                  <h3 class="awa awg awp bah">
-                    Solutions
-                  </h3>
-                  <ul role="list" class="lk abw">
-                    <li>
-                      <Link href="#" class="awa awp axo blu">
-                        Marketing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" class="awa awp axo blu">
-                      Analytics
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" class="awa awp axo blu">
-                        Commerce
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#" class="awa awp axo blu">
-                        Insights
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+					// className="w-12 h-12"
+					src={'/LogoSinBack.png'}
+					alt="LogoGS"
+					width={258}
+					height={348}
+				/>
         </div>
-      </div>          
+        <p class="text-sm text-gray-400">&copy; 2023 Guardian Security. All rights reserved.</p>
+        <div class="mt-4 flex space-x-4">
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Home
+          </Link>
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Services
+          </Link>
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Contact
+          </Link>
+        </div>
+        <div class="mt-4 flex space-x-4">
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Privacy Policy
+          </Link>
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Terms of Service
+          </Link>
+        </div>
+        <div class="mt-4">
+          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+            Follow us on social media
+          </Link>
+
+					<div class="mt-4 flex space-x-4" className={styles.center_icons}>
+					<FaFacebookF />
+					<FaGoogle />
+					<AiFillLinkedin />
+					</div>
+
+        </div>
+      </div>
     </footer>
+      
   )
 }
 

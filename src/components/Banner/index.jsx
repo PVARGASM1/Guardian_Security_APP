@@ -51,7 +51,7 @@ const BannerHome = () => {
           alt="Banner" />
       </div>
 
-      {/* </div><div className="bg-white py-24 sm:py-32">
+      </div><div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
             Trabajamos con las mejores técnologías y marcas del mercado.
@@ -81,8 +81,14 @@ const BannerHome = () => {
               alt="Azure"
               width={158}
               height={48} />
+            <Image
+              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+              src={'/aruba.jpg'}
+              alt="aruba"
+              width={158}
+              height={48} />
           </div>
-        </div> */}
+        </div> 
       </div>
     </>
 

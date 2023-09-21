@@ -31,9 +31,9 @@ const Header = () => {
 
   return (
     <header className="bg-white">
-    <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 base:px-8" aria-label="Global">
       <div className="flex lg:flex-1">
-        <a href="#" className="-m-1.5 p-1.5">
+        <Link href={'/home'} className="-m-1.5 p-1.5">
           <span className="sr-only">Our Company</span>
           <Link href={'/home'}>
             <Image 
@@ -43,7 +43,7 @@ const Header = () => {
               height={250}
             />
           </Link>
-        </a>
+        </Link>
       </div>
       <div className="flex lg:hidden">
         <button
@@ -96,7 +96,7 @@ const Header = () => {
           </Transition>
         </Popover>
 
-        <Link href={'/consultorias'} className="text-xl font-semibold leading text-gray-900">
+        <Link href={'/consultorias'} className="text-lg font-semibold leading text-gray-900">
           Agendar consultoria
         </Link>
 
@@ -105,16 +105,16 @@ const Header = () => {
         </Link>
       </Popover.Group>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href={'/login'} className="text-xl font-semibold leading text-gray-900">
+        <Link href={'/login'} className="text-xl font-semibold leading text-gray-900">
           Log in <span aria-hidden="true">&rarr;</span>
-        </a>
+        </Link>
       </div>
     </nav>
     <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
       <div className="fixed inset-0 z-10" />
       <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-between">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href={'/home'} className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <Image 
               src={'/LogoSinBack.png'}
@@ -122,7 +122,7 @@ const Header = () => {
               width={100}
               height={100}
             />
-          </a>
+          </Link>
           <button
             type="button"
             className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -151,7 +151,7 @@ const Header = () => {
                           key={item.name}
                           as="a"
                           href={item.href}
-                          className="block rounded-lg py-2 pl-6 pr-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                          className="block rounded-base py-2 pl-6 pr-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                         >
                           {item.name}
                         </Disclosure.Button>
@@ -162,25 +162,25 @@ const Header = () => {
               </Disclosure>
               <Link
                 href={'/consultorias'}
-                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="-mx-3 block rounded-base px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Agendar consultoria
               </Link>
 
-              <a
+              <Link
                 href={'/home'}
-                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="-mx-3 block rounded-base px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Nuestra Compañia
-              </a>
+              </Link>
             </div>
             <div className="py-6">
-              <a
+              <Link
                 href={'/login'}
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="-mx-3 block rounded-base px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Log in
-              </a>
+              </Link>
             </div>
           </div>
         </div>

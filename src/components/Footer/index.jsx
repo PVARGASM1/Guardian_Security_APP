@@ -7,20 +7,20 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer class="bg-gray-900 text-white py-8">
+    <footer class="bg-gray-900 text-white py-1">
       <div class="container mx-auto flex flex-col items-center">
         <div class="mb-4">
         <Image
-					// className="w-12 h-12"
+					className="w-26 h-26 flex-col items-center"
 					src={'/LogoSinBack.png'}
 					alt="LogoGS"
-					width={258}
-					height={348}
+					width={228}
+					height={288}
 				/>
         </div>
         <p class="text-sm text-gray-400">&copy; 2023 Guardian Security. All rights reserved.</p>
         <div class="mt-4 flex space-x-4">
-          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+          <Link href={'/home'} class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
             Home
           </Link>
           <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">

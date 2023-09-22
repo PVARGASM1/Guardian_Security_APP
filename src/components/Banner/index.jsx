@@ -6,7 +6,7 @@ const BannerHome = () => {
     
   return (
     <>
-    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-2 py-2.5 sm:px-3.5 sm:before:flex-1">
       <div
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
         aria-hidden="true"
@@ -31,7 +31,6 @@ const BannerHome = () => {
         <p className="text-sm leading-6 text-gray-900">
           <strong className="font-semibold">Guardian Security Solutions</strong>
           <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
-            <circle cx={1} cy={1} r={1} />
           </svg>
           <br />
           Revisa todos nuestros servicios.
@@ -51,7 +50,8 @@ const BannerHome = () => {
           alt="Banner" />
       </div>
 
-      </div><div className="bg-white py-24 sm:py-32">
+      </div>
+      <div className="bg-white py-24 sm:py-15">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
             Trabajamos con las mejores técnologías y marcas del mercado.

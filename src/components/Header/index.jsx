@@ -30,9 +30,11 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white">
-    <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 base:px-8" aria-label="Global">
-      <div className="flex lg:flex-1">
+    <header className="bg-gray-800 text-white py-2">
+
+    <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 base:px-2" aria-label="Global">
+
+      <div className="flex lg:flex-1 p-1">
         <Link href={'/home'} className="-m-1.5 p-1.5">
           <span className="sr-only">Our Company</span>
           <Link href={'/home'}>
@@ -55,9 +57,9 @@ const Header = () => {
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-      <Popover.Group className="hidden lg:flex lg:gap-x-12">
+      <Popover.Group className="hidden lg:flex lg:gap-x-4">
         <Popover className="relative">
-          <Popover.Button className="flex items-center gap-x-1 text-xl font-semibold leading text-gray-900">
+          <Popover.Button className="flex items-center gap-x-1 text-xl font-semibold leading text-white-900">
             Servicios
             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
           </Popover.Button>
@@ -96,23 +98,24 @@ const Header = () => {
           </Transition>
         </Popover>
 
-        <Link href={'/consultorias'} className="text-lg font-semibold leading text-gray-900">
+        <Link href={'/consultorias'} className="text-xl font-semibold leading text-white-900">
           Agendar consultoria
         </Link>
 
-        <Link href={'/home'} className="text-xl font-semibold leading text-gray-900">
+        <Link href={'/home'} className="text-xl font-semibold leading text-white-900">
           Nuestra compañia
         </Link>
       </Popover.Group>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <Link href={'/login'} className="text-xl font-semibold leading text-gray-900">
+        <Link href={'/login'} className="text-xl font-semibold leading text-white-900">
           Log in <span aria-hidden="true">&rarr;</span>
         </Link>
       </div>
     </nav>
+    
     <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
       <div className="fixed inset-0 z-10" />
-      <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-between">
           <Link href={'/home'} className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
@@ -125,7 +128,7 @@ const Header = () => {
           </Link>
           <button
             type="button"
-            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 rounded-md p-2 text-gray-700"
             onClick={() => setMobileMenuOpen(false)}
           >
             <span className="sr-only">Close menu</span>
@@ -134,7 +137,7 @@ const Header = () => {
         </div>
         <div className="mt-6 flow-root">
           <div className="-my-6 divide-y divide-gray-500/10">
-            <div className="space-y-2 py-6">
+            <div className="space-y-2 py-2">
               <Disclosure as="div" className="-mx-3">
                 {({ open }) => (
                   <>
@@ -174,10 +177,10 @@ const Header = () => {
                 Nuestra Compañia
               </Link>
             </div>
-            <div className="py-6">
+            <div className="py-4">
               <Link
                 href={'/login'}
-                className="-mx-3 block rounded-base px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="-mx-3 block rounded-base px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Log in
               </Link>

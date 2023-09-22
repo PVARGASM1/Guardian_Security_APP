@@ -1,4 +1,5 @@
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 const features = [
     {
@@ -27,14 +28,13 @@ const features = [
     },
   ]
 
-
-
 const ServicesHome = () => {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <>
+    <div className="bg-white py-24 sm:py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Ciberseguridad</h2>
+          <h2 className="flex-auto text-3xl font-semibold items-center justify-center text-slate-900">Ciberseguridad</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Todo lo que necesitas en seguridad de la información lo encuentras en Guardian Security.
           </p>
@@ -44,7 +44,7 @@ const ServicesHome = () => {
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-900">
                     <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
                   </div>
                   {feature.name}
@@ -55,7 +55,47 @@ const ServicesHome = () => {
           </dl>
         </div>
       </div>
-    </div>
+    </div><div className="bg-white py-24 sm:py-15">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
+            Nuestros clientes
+          </h2>
+          <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+            <Image
+              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+              src={'/emermedica.png'}
+              alt="emermedica"
+              width={158}
+              height={48} />
+            <Image
+              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+              src={'/colmedica.jpg'}
+              alt="Colmedica"
+              width={158}
+              height={48} />
+            <Image
+              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+              src={'/rua_group.png'}
+              alt="rua"
+              width={158}
+              height={48} />
+            <Image
+              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+              src={'/GCN-logo-yellow.png'}
+              alt="GCN"
+              width={158}
+              height={48} />
+            <Image
+              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+              src={'/mercados_zapatoca.png'}
+              alt="zapatoca"
+              width={158}
+              height={48} />
+
+          </div>
+        </div>
+      </div>
+    </> 
   )
 }
 

@@ -103,7 +103,7 @@ const Header = () => {
         </Link>
 
         <Link href={'/home'} className="text-xl font-semibold leading text-white-900">
-          Nuestra compañia
+          Registrate ahora
         </Link>
       </Popover.Group>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">

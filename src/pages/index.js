@@ -1,5 +1,9 @@
 import Head from 'next/head'
-import Layout from '@/components/Layout';
+import Banner from '@/components/Banner';
+import Header from '@/components/Header';
+import AboutUs from '@/components/AboutUs';
+import Footer from '@/components/Footer';
+import ServicesHome from '@/components/ServiciosHome';
 
 
 const HomePage = () => {
@@ -12,10 +16,12 @@ const HomePage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div>
-          <Layout />
-
-
-        </div>
+        <Header />
+          <AboutUs />
+          <Banner />
+          <ServicesHome />
+        <Footer />
+      </div>
     </> 
   )
 }

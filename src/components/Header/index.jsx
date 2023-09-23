@@ -14,11 +14,11 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'Instalación', description: 'Instalación de firewalls', href: '#', icon: ChartPieIcon },
-  { name: 'Administración', description: 'Asesoria directa con nuestros clientes', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Seguridad', description: 'Ciberseguridad para redes y aplicaciones', href: '#', icon: FingerPrintIcon },
-  { name: 'Consultoria', description: 'Consultoria y asesoría de servicios de ciberseguridad', href: '#', icon: SquaresPlusIcon },
-  { name: 'Asistencia', description: 'Migración de plataformas de seguridad', href: '#', icon: ArrowPathIcon },
+  { name: 'Instalación', description: 'Instalación de firewalls', href: '/services', icon: ChartPieIcon },
+  { name: 'Administración', description: 'Asesoria directa con nuestros clientes', href: '/services', icon: CursorArrowRaysIcon },
+  { name: 'Seguridad', description: 'Ciberseguridad para redes y aplicaciones', href: '/services', icon: FingerPrintIcon },
+  { name: 'Consultoria', description: 'Consultoria y asesoría de servicios de ciberseguridad', href: '/services', icon: SquaresPlusIcon },
+  { name: 'Asistencia', description: 'Migración de plataformas de seguridad', href: '/services', icon: ArrowPathIcon },
 ]
 
 

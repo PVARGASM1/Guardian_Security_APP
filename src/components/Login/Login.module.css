@@ -9,7 +9,8 @@
 }
 
 .background {
+  margin: 2rem 2rem;
   height: 1287px;
-  background-image: url(../../../public/background-login.jpg);
+  background-image: url('../../../public/background-login.jpg');
 }
 

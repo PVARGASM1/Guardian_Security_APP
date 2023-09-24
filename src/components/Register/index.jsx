@@ -1,10 +1,11 @@
-import Image from "next/image"
-import Link from "next/link"
-import styles from './Login.module.css'
+import Image from "next/image";
+import Link from "next/link";
+import styles from '../Login/Login.module.css'
 
-const Login = () => {
+
+const Register = () => {
   return (
-  <div className={styles.background}>
+    <div className={styles.background}>
     <div className={styles.card}>
     
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
@@ -17,12 +18,32 @@ const Login = () => {
               height={170}
             />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Ingresa a tu cuenta
+            Crea tu cuenta
           </h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
+
+          <div>
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                Nombre empresa o nombre completo
+              </label>
+              <div className="mt-2">
+                <input
+                  id="name"
+                  name="name"
+                  type="name"
+                  placeholder=" Nombre empresa o persona natural"
+                  autoComplete="name"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email
@@ -72,14 +93,14 @@ const Login = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Ingresa
+                Crear cuenta
               </button>
             </div>
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            <Link href={'/register'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              ¿No tienes cuenta?
+            <Link href={'/login'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              Ingresa a tu cuenta
             </Link>
           </p>
         </div>
@@ -90,4 +111,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register;

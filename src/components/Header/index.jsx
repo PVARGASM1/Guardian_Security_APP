@@ -35,9 +35,9 @@ const Header = () => {
     <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 base:px-2" aria-label="Global">
 
       <div className="flex lg:flex-1 p-1">
-        <Link href={'/home'} className="-m-1.5 p-1.5">
+        <Link href={'/'} className="-m-1.5 p-1.5">
           <span className="sr-only">Our Company</span>
-          <Link href={'/home'}>
+          <Link href={'/'}>
             <Image 
               src={'/LogoSinBack.png'}
               alt='logoGS'
@@ -98,11 +98,11 @@ const Header = () => {
           </Transition>
         </Popover>
 
-        <Link href={'/consultorias'} className="text-xl font-semibold leading text-white-900">
+        <Link href={'/consulting'} className="text-xl font-semibold leading text-white-900">
           Agendar consultoria
         </Link>
 
-        <Link href={'/home'} className="text-xl font-semibold leading text-white-900">
+        <Link href={'/register'} className="text-xl font-semibold leading text-white-900">
           Registrate ahora
         </Link>
       </Popover.Group>

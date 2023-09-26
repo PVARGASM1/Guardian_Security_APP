@@ -20,10 +20,10 @@ const Footer = () => {
         </div>
         <p class="text-sm text-gray-400">&copy; 2023 Guardian Security. All rights reserved.</p>
         <div class="mt-4 flex space-x-4">
-          <Link href={'/home'} class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+          <Link href={'/'} class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
             Home
           </Link>
-          <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+          <Link href={'/services'} class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
             Services
           </Link>
           <Link href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">

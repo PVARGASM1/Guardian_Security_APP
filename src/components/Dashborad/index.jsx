@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import Image from 'next/image'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 const user = {
   name: 'Amy Whinehouse',
@@ -10,12 +11,11 @@ const user = {
     'https://res.cloudinary.com/dbmertsgv/image/upload/v1694999567/CARS-Folder/yqg3li5qcndgnsafpgjj.jpg',
 }
 const navigation = [
-  { name: 'Dashboard Usuario', href: '#', current: true },
-  { name: 'Mis consultorias', href: '#', current: true },
+  { name: 'Dashboard Usuario', href: '/profile', current: true },
+  { name: 'Mis consultorias', href: "/my-consulting", current: true },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
 
@@ -23,11 +23,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const DashboardUser = () => {
+const DashboardUser = ({title}) => {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-slate-800">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -45,9 +45,9 @@ const DashboardUser = () => {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            href={'/my-consulting'}
                             className={classNames(
                               item.current
                                 ? 'bg-gray-900 text-white'
@@ -57,7 +57,7 @@ const DashboardUser = () => {
                             aria-current={item.current ? 'page' : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -179,7 +179,7 @@ const DashboardUser = () => {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard Usuario</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h1>
           </div>
         </header>
         <main>

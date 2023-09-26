@@ -35,7 +35,7 @@ const Login = () => {
       const userLogged = await result.json()
 
       localStorage.setItem('token', userLogged.token);
-      localStorage.setItem('name', userLogged.profile.name);
+      localStorage.setItem('name', userLogged.profile.nombre);
       localStorage.setItem('email', userLogged.profile.email);
 
       route.push(`/profile/${userLogged.profile.name}`)

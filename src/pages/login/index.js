@@ -23,7 +23,7 @@ const LoginPage = () => {
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
-    console.log("user", user)
+    
     try {
       const fetchLogin = {
         method: "POST",
@@ -34,13 +34,16 @@ const LoginPage = () => {
       }
       const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
       const userLogged = await result.json()
+
+      const { profile, token } = userLogged      
+      
       console.log('result', userLogged)
 
-      localStorage.setItem('token', userLogged.token);
-      localStorage.setItem('name', userLogged.name);
-      localStorage.setItem('email', userLogged.email);
+      localStorage.setItem('token', token.token);
+      localStorage.setItem('name', profile.name);
+      localStorage.setItem('email', profile.email);
 
-      router.push(`/profile`)
+      router.push(`/profile?name=${profile.name}&email=${profile.email}`)
 
     } catch (error) {
       console.error(error);

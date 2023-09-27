@@ -1,10 +1,13 @@
-import React from 'react'
+import { useRouter } from "next/router";
 
 
 const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const router = useRouter();
+  const { name, email } = router.query;
 
   return (
     <div>
@@ -19,14 +22,15 @@ const Profile = () => {
           <div className="mt-10 grid grid-cols-1 flex content-center gap-x-6 gap-y-8 sm:grid-cols-8">
           <div className="sm:col-span-4">
               <label htmlFor="empresa" className="block text-base font-medium leading-6 text-gray-900">
-                Nombre empresa
+                Nombre empresa o nombre completo 
               </label>
               <div className="mt-2">
                 <input
+                  value={name}
                   id="empresa"
                   name="empresa"
                   type="empresa"
-                  placeholder=" Nombre empresa"
+                  placeholder=" Nombre empresa o nombre completo"
                   autoComplete="empresa"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -34,15 +38,16 @@ const Profile = () => {
             </div>
 
             <div className="sm:col-span-4">
-              <label htmlFor="name" className="block text-base font-medium leading-6 text-gray-900">
-                Nombre de contacto
+              <label htmlFor="email" className="block text-base font-medium leading-6 text-gray-900">
+                Email 
               </label>
               <div className="mt-2">
                 <input
+                  value={email}
                   type="text"
-                  name="name"
-                  id="name"
-                  placeholder=" Nombre de contacto"
+                  name="email"
+                  id="email"
+                  placeholder=" Email"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

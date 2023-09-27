@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from '../Login/Login.module.css'
 import { useState } from "react"
+import { useRouter } from "next/router";
+
 
 
 const Register = () => {
@@ -19,6 +21,8 @@ const Register = () => {
       [name]: value,
     });
   }
+
+  const router = useRouter();
   //localhost:8080/api/user
 
   const handleSubmitRegister = async (e) => {
@@ -33,12 +37,17 @@ const Register = () => {
         body: JSON.stringify(newUser)
       }
       const response = await fetch('http://localhost:8080/api/user', fetchRegister)
-      console.log("response", response)
       const userRegister = await response.json()
 
-      localStorage.setItem('name', userRegister.name);
-      localStorage.setItem('email', userRegister.email);
-  
+      const user = userRegister.user
+      
+      console.log("response", user)
+
+      localStorage.setItem('name', user.name);
+      localStorage.setItem('email', user.email);
+      localStorage.setItem('password', user.password);
+      
+      router.push(`/profile?name=${user.name}&email=${user.email}`)
 
     } catch(error) {
       console.log(error);

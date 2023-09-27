@@ -3,36 +3,28 @@
 const DashboardTable = () => {
 
 	return (
-    <div className=''>
-      <div className="px-4 sm:px-0">
-        <h3 className="text-base font-semibold leading-7 text-gray-900">Consultorías registradas</h3>
-      </div>
+    <div className="overflow-x-auto mx-auto sm:mx-8 rounded">
+      <table className="table-auto w-full border mb-8">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="px-4 py-2 bg-gray-800 text-white">Nombre empresa o contacto</th>
+            <th className="px-4 py-2 bg-gray-800 text-white">Servicio</th>
+            <th className="px-4 py-2 bg-gray-800 text-white">Estado</th>
+						<th className="px-4 py-2 bg-gray-800 text-white">Valor Consultoría</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <div className="mt-6 border-t border-gray-100">
-        <dl className="divide-y divide-gray-100">
+          <tr className="text-center">
+            <td className="border px-4 py-2"> Juan Pérez</td>
+            <td className="border px-4 py-2"> Instalación </td>
+            <td className="border px-4 py-2"> Solicitada</td>
+            <td className="border px-4 py-2"> $220.000 </td>
 
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Nombre empresa o contacto</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
-          </div>
-
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Servicio</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">aca debe ir el servicio selecionado en consulting</dd>
-          </div>
-
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Estado</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">enviado o no al correo registardo</dd>
-          </div>
-
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Valor Consultoría</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">$150,000</dd>
-          </div>
+          </tr>
           
-        </dl>
-      </div>
+        </tbody>
+      </table>
     </div>
   )
 

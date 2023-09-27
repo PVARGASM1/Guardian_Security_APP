@@ -15,7 +15,7 @@ const navigation = [
   { name: 'Mis consultorias', href: "/my-consulting", current: true },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
+  { name: 'Your Profile', href: '/profile' },
   { name: 'Sign out', href: '#' },
 ]
 

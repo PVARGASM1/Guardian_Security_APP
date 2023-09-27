@@ -32,16 +32,17 @@ const Login = () => {
         body: JSON.stringify(user)
       }
       const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
+      console.log('result', result)
       const userLogged = await result.json()
 
       localStorage.setItem('token', userLogged.token);
-      localStorage.setItem('name', userLogged.profile.nombre);
-      localStorage.setItem('email', userLogged.profile.email);
+      localStorage.setItem('name', userLogged.name);
+      localStorage.setItem('email', userLogged.email);
 
       route.push(`/profile/${userLogged.profile.name}`)
     
     } catch(error) {
-
+      console.error(error);
     }
   }
 

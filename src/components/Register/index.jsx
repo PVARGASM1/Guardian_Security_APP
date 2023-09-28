@@ -27,7 +27,7 @@ const Register = () => {
 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
-    console.log("new", newUser)
+
     try {
       const fetchRegister = {
         method: "POST",

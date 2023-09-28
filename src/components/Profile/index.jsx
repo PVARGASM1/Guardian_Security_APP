@@ -1,17 +1,52 @@
 import { useRouter } from "next/router";
-
+import { useState } from "react";
+import { useAuth } from "@/context";
 
 const Profile = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  
 
   const router = useRouter();
-  const { name, email } = router.query;
+  const { name, email} = router.query;
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: ""
+  });
+  
+
+  const handleUpdateUser = async (e) => {
+    e.preventDefault();
+
+    try {
+      const fetchUpdateUser = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+
+      const responseUpdate = await fetch(`http://localhost:8080/api/user/:id`, fetchUpdateUser)
+      const updateData = await responseUpdate.json()
+      
+      console.log("response", updateData)
+
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
+
     <div>
-        <form className="m-10 p-8 border-2 rounded-lg ">
+        <form 
+          className="m-10 p-8 border-2 rounded-lg "
+          onSubmit={handleUpdateUser}
+        >
+          
       <div className="space-y-12 space-x-12 ">
 
         <div className="border-b border-gray-900/10 pb-12">
@@ -56,32 +91,36 @@ const Profile = () => {
 
 
             <div className="sm:col-span-4">
-              <label htmlFor="document" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="phone" className="block text-base font-medium leading-6 text-gray-900">
                 Teléfono
               </label>
               <div className="mt-2">
                 <input
                   type="text"
-                  name="telefono"
-                  id="telefono"
+                  name="phone"
+                  id="phone"
                   placeholder=" Teléfono"
-                  autoComplete="telefono"
+                  autoComplete="phone"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
               </div>
             </div>
 						
 						<div className="sm:col-span-4">
-              <label htmlFor="direccion" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="address" className="block text-base font-medium leading-6 text-gray-900">
                 Dirección
               </label>
               <div className="mt-2">
                 <input
                   type="text"
-                  name="direccion"
-                  id="direccion"
+                  name="address"
+                  id="address"
                   placeholder=" Dirección"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 />
               </div>
             </div>

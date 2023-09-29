@@ -39,7 +39,7 @@ const LoginPage = () => {
       
       console.log('result', userLogged)
 
-      localStorage.setItem('token', token.token);
+      localStorage.setItem('token', token);
       localStorage.setItem('name', profile.name);
       localStorage.setItem('email', profile.email);
 

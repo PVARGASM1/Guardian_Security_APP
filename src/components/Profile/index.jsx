@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useAuth } from "@/context";
+
 
 const Profile = () => {
   

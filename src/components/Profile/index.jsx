@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useJwt } from "react-jwt";
@@ -7,7 +8,12 @@ const Profile = () => {
 
   const router = useRouter();
   const { name, email} = router.query;
-  const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
+
+  if (typeof window !== 'undefined') {
+    const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
+    // Resto del código que depende de localStorage
+    console.log("token", decodedToken)
+  }
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +22,6 @@ const Profile = () => {
     address: ""
   });
   
-  console.log("token", decodedToken)
 
   const handleUpdateUser = async (e) => {
     e.preventDefault();

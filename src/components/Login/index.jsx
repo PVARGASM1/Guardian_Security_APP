@@ -1,8 +1,51 @@
 import Image from "next/image"
+import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import styles from './Login.module.css'
 
 const Login = () => {
+
+  const [user, setUser] =useState ({
+    email:"",
+    password:""
+  });
+  const route = useRouter()
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  }
+
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const fetchLogin = {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+      }
+      const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
+      console.log('result', result)
+      const userLogged = await result.json()
+
+      localStorage.setItem('token', userLogged.token);
+      localStorage.setItem('name', userLogged.name);
+      localStorage.setItem('email', userLogged.email);
+
+      route.push(`/profile/${userLogged.profile.name}`)
+    
+    } catch(error) {
+      console.error(error);
+    }
+  }
+
   return (
   <div className={styles.background}>
     <div className={styles.card}>
@@ -22,7 +65,11 @@ const Login = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form 
+            className="space-y-6"
+            action="#" 
+            onSubmit={handleSubmitLogin}
+          >
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email
@@ -36,6 +83,8 @@ const Login = () => {
                   autoComplete="email"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={user.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -51,6 +100,8 @@ const Login = () => {
                   autoComplete="current-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={user.password}
+                  onChange={handleChange}
                 />
               </div>
 

@@ -1,9 +1,59 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from '../Login/Login.module.css'
+import { useState } from "react"
+import { useRouter } from "next/router";
+
 
 
 const Register = () => {
+
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    password: ""
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser({
+      ...newUser,
+      [name]: value,
+    });
+  }
+
+  const router = useRouter();
+  //localhost:8080/api/user
+
+  const handleSubmitRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const fetchRegister = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUser)
+      }
+      const response = await fetch('http://localhost:8080/api/user', fetchRegister)
+      const userRegister = await response.json()
+
+      const user = userRegister.user
+      
+      console.log("response", user)
+
+      localStorage.setItem('name', user.name);
+      localStorage.setItem('email', user.email);
+      localStorage.setItem('password', user.password);
+      
+      router.push(`/profile?name=${user.name}&email=${user.email}`)
+
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className={styles.background}>
     <div className={styles.card}>
@@ -23,7 +73,11 @@ const Register = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form 
+            className="space-y-6"
+            action="#"
+            onSubmit={handleSubmitRegister}
+          >
 
           <div>
               <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -38,6 +92,8 @@ const Register = () => {
                   autoComplete="name"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={newUser.name}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -57,6 +113,8 @@ const Register = () => {
                   autoComplete="email"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={newUser.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -72,6 +130,8 @@ const Register = () => {
                   autoComplete="current-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={newUser.password}
+                  onChange={handleChange}
                 />
               </div>
 

@@ -1,15 +1,12 @@
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-import Consultoria from "@/components/Consultorias"
+import Consulting from "@/components/Consulting";
 
 const ServicesPage = () => {
-    return (
-      <>
-        <Header />
-        <Consultoria />
-        <Footer />
-      </>
-    )
+	
+	return (
+		<>
+			<Consulting />
+		</>
+	)
   }
   
   export default ServicesPage

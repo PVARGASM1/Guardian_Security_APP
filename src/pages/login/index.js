@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@components/Login/Login.module.css'
-
+import Cookies from 'universal-cookie';
 
 const LoginPage = () => {
 
@@ -12,6 +12,7 @@ const LoginPage = () => {
     password: ""
   });
   const router = useRouter()
+  const cookies = new Cookies()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,9 +40,9 @@ const LoginPage = () => {
       
       console.log('result', userLogged)
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('name', profile.name);
-      localStorage.setItem('email', profile.email);
+      cookies.set('token', token);
+      cookies.set('name', profile.name);
+      cookies.set('email', profile.email);
 
       router.push(`/profile?name=${profile.name}&email=${profile.email}`)
 

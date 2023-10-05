@@ -2,18 +2,20 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useJwt } from "react-jwt";
+import Cookies from "universal-cookie";
 
 
 const Profile = () => {
 
   const router = useRouter();
   const { name, email} = router.query;
+  const cookies = new Cookies()
 
-  if (typeof window !== 'undefined') {
-    const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
-    // Resto del código que depende de localStorage
-    console.log("token", decodedToken)
-  }
+  
+    const { decodedToken, isExpired } = useJwt(cookies.get('token'));
+    
+    console.log("isExpired", decodedToken)
+  
 
   const [formData, setFormData] = useState({
     name: "",

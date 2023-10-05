@@ -1,7 +1,7 @@
 
 
-const DashboardTable = ({ data }) => {
-  // console.log("consulting", data)
+const DashboardTable = ({ consulting }) => {
+
 
 	return (
     <div className="overflow-x-auto mx-auto sm:mx-8 rounded">
@@ -15,20 +15,20 @@ const DashboardTable = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((info, index) => (
+          {/* {data?.map((info, index) => ( */}
 
             <tr 
-            key={index}
+            // key={index}
             className="text-center">
-              <td className="border px-4 py-2">{info.company}</td>
-              <td className="border px-4 py-2">{info.name}</td>
-              <td className="border px-4 py-2">{info.message}</td>
-              <td className="border px-4 py-2">{info.services}</td>
+              <td className="border px-4 py-2"></td>
+              <td className="border px-4 py-2"></td>
+              <td className="border px-4 py-2"></td>
+              <td className="border px-4 py-2"></td>
 
             </tr>
 
-          )
-          )}
+          {/* ) */}
+          {/* )} */}
         </tbody>
       </table>
     </div>

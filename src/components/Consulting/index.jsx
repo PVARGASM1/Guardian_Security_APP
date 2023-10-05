@@ -6,12 +6,13 @@ import { useJwt } from "react-jwt";
 import Modal from "@components/Modal"
 import styles from "./Consulting.module.css";
 import style from "@components/Modal/Modal.module.css"
-import Link from "next/link";
+import Cookies from "universal-cookie";
 
 const Consulting = () => {
 	const [createModal, setCreateModal] = useState(false)
+	const cookies = new Cookies()
 
-	const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
+	const { decodedToken, isExpired } = useJwt(cookies.get('token'));
 	console.log("token", decodedToken)
 
 	const [data, setData] = useState({
@@ -234,9 +235,9 @@ const Consulting = () => {
 					</div>
 
 					<div className="mt-6 flex items-center justify-center gap-x-6">
-						<Link 
-							href={'./my-consulting'}
-						>
+						{/* <Link 
+							// href={'./my-consulting'}
+						> */}
 						<button
 							type="submit"
 							className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -244,7 +245,7 @@ const Consulting = () => {
 						
 							Enviar
 						</button>
-						</Link>
+						{/* </Link> */}
 						<button type="button" className="text-lg font-bold leading-6 text-gray-900">
 							Cancelar
 						</button>

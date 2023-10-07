@@ -49,7 +49,7 @@ const Register = () => {
       router.push(`/profile?name=${user.name}&email=${user.email}`)
 
     } catch(error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

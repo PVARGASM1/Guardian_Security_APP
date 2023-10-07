@@ -41,7 +41,7 @@ const Profile = () => {
 
       
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

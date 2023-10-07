@@ -66,28 +66,33 @@ const ServicesHome = () => {
               src={'/emermedica.png'}
               alt="emermedica"
               width={158}
-              height={48} />
+              height={48}
+              placeholder = 'empty' />
             <Image
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src={'/colmedica.jpg'}
+              placeholder = 'empty'
               alt="Colmedica"
               width={158}
               height={48} />
             <Image
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src={'/rua_group.png'}
+              placeholder = 'empty'
               alt="rua"
               width={158}
               height={48} />
             <Image
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src={'/GCN-logo-yellow.png'}
+              placeholder = 'empty'
               alt="GCN"
               width={158}
               height={48} />
             <Image
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src={'/mercados_zapatoca.png'}
+              placeholder = 'empty'
               alt="zapatoca"
               width={158}
               height={48} />

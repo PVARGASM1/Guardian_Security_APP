@@ -13,6 +13,7 @@ const Footer = () => {
         <Image
 					className="w-26 h-26 flex-col items-center"
 					src={'/LogoSinBack.png'}
+          priority={false}
 					alt="LogoGS"
 					width={228}
 					height={288}

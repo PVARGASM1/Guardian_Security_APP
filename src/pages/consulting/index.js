@@ -87,9 +87,10 @@ const ConsultingPage = () => {
 							<Image
 								className="mx-auto w-45 h-40 w-auto"
 								src={'/LogoSinBack.png'}
+								priority={false}
 								alt='logoGS'
-								width={170}
-								height={170}
+								width={auto}
+								height={auto}
 							/>
 
 							<h2 className="text-2xl text-center font-bold leading-7 text-sky-900">Registra tu consultoria</h2>

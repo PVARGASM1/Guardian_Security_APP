@@ -38,6 +38,7 @@ const DashboardUser = ({title}) => {
                         className="h-18 w-14"
                         src={'/LogoSinBack.png'}
                         alt="LogoGS"
+                        priority={false}
                         width={250}
                         height={100}
                       />

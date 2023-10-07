@@ -40,6 +40,7 @@ const Header = () => {
           <Link href={'/'}>
             <Image 
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
               width={250}
               height={250}
@@ -121,6 +122,7 @@ const Header = () => {
             <span className="sr-only">Your Company</span>
             <Image 
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
               width={100}
               height={100}

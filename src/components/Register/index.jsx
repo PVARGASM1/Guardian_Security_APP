@@ -62,9 +62,10 @@ const Register = () => {
             <Image 
               className="mx-auto w-45 h-40 w-auto"
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
-              width={170}
-              height={170}
+              width={auto}
+              height={auto}
             />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Crea tu cuenta

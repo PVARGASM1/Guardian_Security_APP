@@ -41,7 +41,6 @@ const Register = () => {
 
       const user = userRegister.user
       
-      console.log("response", user)
 
       localStorage.setItem('name', user.name);
       localStorage.setItem('email', user.email);

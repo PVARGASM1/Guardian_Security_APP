@@ -32,7 +32,7 @@ const Login = () => {
         body: JSON.stringify(user)
       }
       const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
-      console.log('result', result)
+   
       const userLogged = await result.json()
 
       localStorage.setItem('token', userLogged.token);

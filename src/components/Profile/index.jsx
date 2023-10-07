@@ -14,9 +14,6 @@ const Profile = () => {
   
     const { decodedToken, isExpired } = useJwt(cookies.get('token'));
     
-    console.log("isExpired", decodedToken)
-  
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,8 +37,7 @@ const Profile = () => {
 
       const responseUpdate = await fetch(`http://localhost:8080/api/user/${decodedToken.id}`, fetchUpdateUser)
       const updateData = await responseUpdate.json()
-      
-     console.log("update", updateData)
+
 
       
     } catch (error) {

@@ -36,9 +36,7 @@ const LoginPage = () => {
       const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
       const userLogged = await result.json()
 
-      const { profile, token } = userLogged      
-      
-      console.log('result', userLogged)
+      const { profile, token } = userLogged;     
 
       cookies.set('token', token);
       cookies.set('name', profile.name);

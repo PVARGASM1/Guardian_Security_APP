@@ -40,6 +40,7 @@ const Header = () => {
           <Link href={'/'}>
             <Image 
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
               width={250}
               height={250}
@@ -121,6 +122,7 @@ const Header = () => {
             <span className="sr-only">Your Company</span>
             <Image 
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
               width={100}
               height={100}
@@ -164,14 +166,14 @@ const Header = () => {
                 )}
               </Disclosure>
               <Link
-                href={'/consultorias'}
+                href={'/consulting'}
                 className="-mx-3 block rounded-base px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Agendar consultoria
               </Link>
 
               <Link
-                href={'/home'}
+                href={'/'}
                 className="-mx-3 block rounded-base px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Nuestra Compañia

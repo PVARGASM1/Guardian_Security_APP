@@ -32,7 +32,7 @@ const Login = () => {
         body: JSON.stringify(user)
       }
       const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
-      console.log('result', result)
+
       const userLogged = await result.json()
 
       localStorage.setItem('token', userLogged.token);
@@ -55,9 +55,10 @@ const Login = () => {
             <Image 
               className="mx-auto w-45 h-40 w-auto"
               src={'/LogoSinBack.png'}
+              priority={false}
               alt='logoGS'
-              width={170}
-              height={170}
+              width={auto}
+              height={auto}
             />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Ingresa a tu cuenta

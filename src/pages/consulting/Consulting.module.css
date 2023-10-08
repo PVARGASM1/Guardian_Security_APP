@@ -1,0 +1,24 @@
+
+  .text {
+    background-color: white;
+    padding: 30px 50px;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    
+  }
+
+  .button {
+    text-align: center;
+    padding: 5px 16px;
+    margin-top: 20px;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: 700;
+    outline: 1px solid rgb(43, 43, 99);
+    background-color: white;
+    color: rgb(43, 43, 99);
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }

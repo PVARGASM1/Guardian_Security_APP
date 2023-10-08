@@ -2,6 +2,8 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useJwt } from "react-jwt";
+import Cookies from "universal-cookie";
+
 
 
 const Profile = () => {
@@ -9,12 +11,9 @@ const Profile = () => {
   const router = useRouter();
   const { name, email} = router.query;
 
-  if (typeof window !== 'undefined') {
-    const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
-    // Resto del código que depende de localStorage
-    console.log("token", decodedToken)
-  }
-
+  const cookies = new Cookies()
+    const { decodedToken, isExpired } = useJwt(cookies.get('token'));
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -39,14 +38,10 @@ const Profile = () => {
       const responseUpdate = await fetch(`http://localhost:8080/api/user/${decodedToken.id}`, fetchUpdateUser)
       const updateData = await responseUpdate.json()
       
-     console.log("update", updateData)
-
-      
     } catch (error) {
-      console.log(error)
-    }
+      console.error(error)
   }
-
+ }
   return (
 
     <div>

@@ -90,6 +90,7 @@ const ConsultingPage = () => {
 								alt='logoGS'
 								width={170}
 								height={170}
+
 							/>
 
 							<h2 className="text-2xl text-center font-bold leading-7 text-sky-900">Registra tu consultoria</h2>

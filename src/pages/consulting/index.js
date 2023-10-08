@@ -38,8 +38,6 @@ const ConsultingPage = () => {
 	const handleCloseModal = () => {
 		setCreateModal(false);
 	}
-	
-
 
 	const handlerSubmitConsulting = async (e) => {
 		e.preventDefault();
@@ -90,8 +88,9 @@ const ConsultingPage = () => {
 								src={'/LogoSinBack.png'}
 								priority={false}
 								alt='logoGS'
-								width={auto}
-								height={auto}
+								width={170}
+								height={170}
+
 							/>
 
 							<h2 className="text-2xl text-center font-bold leading-7 text-sky-900">Registra tu consultoria</h2>

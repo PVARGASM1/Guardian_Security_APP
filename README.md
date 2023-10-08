@@ -1,8 +1,29 @@
 # Welcome to Project Go Cab Now 
 
-This project is an application to schedule consultations on information security services.
+It's a web app, oriented to provide consulting services for computer security in which you can consult the services offered by the company and also register requests according to the needs of customers.
 
-## Prerequisites 📋
+## Table of Contents
+
+- [Guardian Security Application Guide](#Guardian-Security-application-guide-)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [Local development](#Local-development)
+  - [Build with](#Build-with)
+- [Features](#features)
+  - [Homepage](#homepage)
+  - [Registration and Authentication](#registration-and-authentication)
+  - [User Profile](#user-profile)
+  - [Create consulting](#create-consulting)
+  - [My Consultings](#review-my-consulting)
+
+## Introduction
+
+Moteros is a web application oriented to provide consulting services for computer security in which you can consult the services offered by the company and also register requests according to the needs of customers.
+
+
+## Technologies Used 📋
 
 For development, you will only need:
 
@@ -10,10 +31,9 @@ For development, you will only need:
 - [React](https://es.react.dev/)
 - [NextJS](https://nextjs.org/)
 - [Node.js](https://nodejs.org)
-- [npm](https://www.npmjs.com/)
 
 
-## Start running 🚀
+## Installation 🚀
 
 These instructions will allow you to obtain a copy of the running project in your local machine, for the purpose of development and testing.
 
@@ -32,6 +52,8 @@ These instructions will allow you to obtain a copy of the running project in you
     Or you can use
     $ yarn dev
 
+    Enter the address that the console returns, example: http://localhost:3000/
+
 ## Built with
 
 - ReactJS + Vite
@@ -39,6 +61,35 @@ These instructions will allow you to obtain a copy of the running project in you
 - Javascript
 - TailwindCSS
 - CSS
+
+# Features
+
+## Homepage
+
+Welcome to our homepage
+
+- **Homepage**
+- ![Homepage](public/Screenshot_home.jpg)
+
+## Registration and Authentication
+
+If you want to have a create a consulting, you can register and authenticate:
+
+- **Registration:** Create an account with your details.
+- ![Registration](public/Screenshot_register.jpg)
+
+- **Login:** Sign in with your credentials.
+- ![Login](public/Screenshot_login.jpg)
+
+- **User Profile:** View and edit your profile information.
+- ![User Profile](public/Screenshot_profile.jpg)
+
+- **Create Consulting:** Register a new consulting.
+- ![Consulting](public/Screenshot_consulting.jpg)
+
+- **My Consultings:** Review my consultings created.
+- ![Consulting](public/Screenshot_my-consulting.jpg)
+
 
 ## 👥 Contributions 🛠️
 

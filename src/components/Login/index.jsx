@@ -57,8 +57,8 @@ const Login = () => {
               src={'/LogoSinBack.png'}
               priority={false}
               alt='logoGS'
-              width={auto}
-              height={auto}
+              width={170}
+              height={170}
             />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Ingresa a tu cuenta

@@ -40,7 +40,6 @@ const Register = () => {
       const userRegister = await response.json()
 
       const user = userRegister.user
-      
 
       localStorage.setItem('name', user.name);
       localStorage.setItem('email', user.email);

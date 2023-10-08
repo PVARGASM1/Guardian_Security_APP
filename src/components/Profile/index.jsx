@@ -5,15 +5,15 @@ import { useJwt } from "react-jwt";
 import Cookies from "universal-cookie";
 
 
+
 const Profile = () => {
 
   const router = useRouter();
   const { name, email} = router.query;
-  const cookies = new Cookies()
 
-  
+  const cookies = new Cookies()
     const { decodedToken, isExpired } = useJwt(cookies.get('token'));
-    
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,14 +37,11 @@ const Profile = () => {
 
       const responseUpdate = await fetch(`http://localhost:8080/api/user/${decodedToken.id}`, fetchUpdateUser)
       const updateData = await responseUpdate.json()
-
-
       
     } catch (error) {
       console.error(error)
-    }
   }
-
+ }
   return (
 
     <div>

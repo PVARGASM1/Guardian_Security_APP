@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '@components/Login/Login.module.css'
 import Cookies from 'universal-cookie';
 
+
 const LoginPage = () => {
 
   const [user, setUser] = useState({
@@ -12,7 +13,9 @@ const LoginPage = () => {
     password: ""
   });
   const router = useRouter()
+
   const cookies = new Cookies()
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +23,7 @@ const LoginPage = () => {
       ...user,
       [name]: value,
     });
+
   }
 
   const handleSubmitLogin = async (e) => {
@@ -48,6 +52,36 @@ const LoginPage = () => {
       console.error(error);
     }
   }
+
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const fetchLogin = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+      }
+      const result = await fetch('http://localhost:8080/auth/local/login', fetchLogin)
+      const userLogged = await result.json()
+
+      const { profile, token } = userLogged      
+      
+      console.log('result', userLogged)
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('name', profile.name);
+      localStorage.setItem('email', profile.email);
+
+      router.push(`/profile?name=${profile.name}&email=${profile.email}`)
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 
 
   return (

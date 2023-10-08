@@ -1,22 +1,18 @@
-
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react"
 import { useJwt } from "react-jwt";
-import { useRouter } from "next/router";
 import Modal from "@components/Modal"
-import styles from "@pages/consulting/Consulting.module.css";
+import styles from "./Consulting.module.css";
 import style from "@components/Modal/Modal.module.css"
-import Cookies from "universal-cookie";
+import Link from "next/link";
 
-const ConsultingPage = () => {
+const Consulting = () => {
 	const [createModal, setCreateModal] = useState(false)
-	const cookies = new Cookies()
-	const router = useRouter();
 
-	const { decodedToken, isExpired } = useJwt(cookies.get('token'));
+	const { decodedToken, isExpired } = useJwt(localStorage.getItem('token'));
+	console.log("token", decodedToken)
 
 	const [data, setData] = useState({
 		name: "",
@@ -43,7 +39,7 @@ const ConsultingPage = () => {
 
 	const handlerSubmitConsulting = async (e) => {
 		e.preventDefault();
-	
+
 		try {
 			const fetchConsulting = {
 				method: "POST",
@@ -52,30 +48,19 @@ const ConsultingPage = () => {
 				},
 				body: JSON.stringify(data)
 			}
-	
-			const response = await fetch(`http://localhost:8080/api/consulting/${decodedToken.id}`, fetchConsulting);
-			const consulting = await response.json();
-				
-			cookies.set('company', consulting.company);
-			cookies.set('name', consulting.name);
-			cookies.set('message', consulting.message);
-			cookies.set('services', consulting.services);
-	
 
-			router.push({
-				pathname: "/my-consulting",
-				query: { consultingData: JSON.stringify(consulting) },
-			});
-	
+			const response = await fetch(`http://localhost:8080/api/consulting/${decodedToken.id}`, fetchConsulting)
+			const consulting = await response.json()
+			console.log("consultoria", consulting)
+
 			setCreateModal(true);
-	
 		} catch (error) {
-			console.error(error);
+			console.error(error)
 		}
 	}
-	
+
 	return (
-		<>
+		<div>
 			<Header />
 
 			<div>
@@ -88,10 +73,9 @@ const ConsultingPage = () => {
 							<Image
 								className="mx-auto w-45 h-40 w-auto"
 								src={'/LogoSinBack.png'}
-								priority={false}
 								alt='logoGS'
-								width={auto}
-								height={auto}
+								width={170}
+								height={170}
 							/>
 
 							<h2 className="text-2xl text-center font-bold leading-7 text-sky-900">Registra tu consultoria</h2>
@@ -250,15 +234,17 @@ const ConsultingPage = () => {
 					</div>
 
 					<div className="mt-6 flex items-center justify-center gap-x-6">
-
+						<Link 
+							href={'./my-consulting'}
+						>
 						<button
 							type="submit"
 							className="rounded-md bg-indigo-600 px-3 py-2 text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						>
-
+						
 							Enviar
 						</button>
-
+						</Link>
 						<button type="button" className="text-lg font-bold leading-6 text-gray-900">
 							Cancelar
 						</button>
@@ -271,24 +257,21 @@ const ConsultingPage = () => {
 				showModal={createModal}
 				handleShowModal={() => setCreateModal(false)}
 			>
-				<h2
+				<h2 
 					className={styles.text}>Tu consultoría fue creada satisfactoriamente, a tu correo llegará la confirmación.</h2>
 				<div className={style.center}>
-					<Link
-						href={'./my-consulting'}
+					<button
+						className={styles.button}
+						type="button"
+						onClick={handleCloseModal}
 					>
-						<button
-							className={styles.button}
-							type="button"
-							onClick={handleCloseModal}
-						>
-							OK
-						</button>
-					</Link>
+						OK
+					</button>
 				</div>
 			</Modal>
 
+		</div>
 	)
-  }
-  
-  export default ConsultingPage
+}
+
+export default Consulting

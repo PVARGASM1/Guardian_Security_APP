@@ -9,6 +9,5 @@ export default function App({ Component, pageProps }) {
       <time datetime="2016-10-25" suppressHydrationWarning />
       <Component {...pageProps} />
     </>
-
   )
 }

@@ -1,4 +1,5 @@
 import DashboardUser from "@/components/Dashborad";
+
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 
@@ -32,7 +33,6 @@ const MyConsultingPage = () => {
           </thead>
           <tbody>
 
-
             <tr
               className="text-center">
                 <td className="border px-4 py-2">{consultingData.consulting.company}</td>
@@ -40,17 +40,13 @@ const MyConsultingPage = () => {
                 <td className="border px-4 py-2">{consultingData.consulting.message}</td>
                 <td className="border px-4 py-2">{consultingData.consulting.services}</td>
             </tr>
-
           
           </tbody>
         </table>
       </div>
 
-
       <Footer />
-    </div>
   )
 }
 
 export default MyConsultingPage;
-

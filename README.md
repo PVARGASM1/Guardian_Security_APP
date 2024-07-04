@@ -97,4 +97,4 @@ If you want to have a create a consulting, you can register and authenticate:
 
 ## Acknowledgements 🎁
 
-I really to would like to thank the Make it Real team for providing the tools for building my individual project. 
+I would really like to thank the Make it Real team for providing the tools for building my individual project. 
